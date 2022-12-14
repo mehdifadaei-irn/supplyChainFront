@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  plugins: [require("tailwindcss-rtl")],
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -16,10 +17,10 @@ module.exports = {
       lg: "604px",
       // => @media (min-width: 1024px) { ... }
 
-      xl: "740px",
+      xl: "840px",
       // => @media (min-width: 1280px) { ... }
 
-      "2xl": "1000px",
+      "2xl": "1140px",
       // => @media (min-width: 1536px) { ... }
     },
   },

@@ -4,34 +4,66 @@ import Styles from "../styles/Index.module.css";
 import { ConnectButton } from "@web3uikit/web3";
 import Link from "next/link";
 import { useWeb3Contract, useMoralis } from "react-moralis";
+import { ToastContainer, toast } from "react-toastify";
+import Router from "next/router";
 
 function Header() {
-  const { enableWeb3, isWeb3Enabled } = useMoralis();
+  const { enableWeb3, isWeb3Enabled, account } = useMoralis();
 
   // console.log(enableWeb3);
-  console.log(isWeb3Enabled);
+  const notify = () => toast.error("لطفا کیف پولتان را متصل کنید");
+
+  const goToProfile = async () => {
+    if (isWeb3Enabled) {
+      Router.push(`/profile/${account}`);
+    } else {
+      notify();
+    }
+  };
 
   return (
     <div className="flex h-16 justify-between align-middle px-2">
-      <Link href={"/"} className="self-center cursor-pointer mt-6">
-        <Image src={"/lg1.png"} width={130} height={40} />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <Link href={"/"} className="self-center cursor-pointer mr-2 mt-1">
+        <Image src={"/samin.png"} width={140} height={40} />
       </Link>
       <ul className="hidden flex-wrap mr-4 items-center font-bold 2xl:flex">
         <Link
           href={"/"}
-          className="pr-8 hover:text-blue-500 hover:underline cursor-pointer "
+          className="hover:text-blue-500 hover:underline cursor-pointer fon"
         >
-          Home
+          خانه
         </Link>
-        <Link className="pr-8 hover:text-blue-500 hover:underline cursor-pointer "  href={"/profile/12"}>
-          Profile
+        <a
+          className="pr-8 hover:text-blue-500 hover:underline cursor-pointer fon"
+          // href={`/profile/${account}`}
+          onClick={goToProfile}
+        >
+          پروفایل
+        </a>
+        <Link
+          href={"/token"}
+          className="pr-8 hover:text-blue-500 hover:underline cursor-pointer fon"
+        >
+          توکن اختصاصی
         </Link>
-        <li className="pr-8 hover:text-blue-500 hover:underline cursor-pointer ">
-          OurToken
-        </li>
-        <li className="hover:text-blue-500 hover:underline cursor-pointer transition-opacity ">
-          Contact
-        </li>
+        <Link
+          href={"/contactUs"}
+          className="pr-8 hover:text-blue-500 hover:underline cursor-pointer transition-opacity fon"
+        >
+          تماس با ما
+        </Link>
       </ul>
       <div className="self-center">
         <ConnectButton />

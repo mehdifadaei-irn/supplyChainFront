@@ -1,7 +1,7 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsBagCheck, BsArrowReturnRight } from "react-icons/bs";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { ImKey } from "react-icons/im";
 import { VscPerson } from "react-icons/vsc";
@@ -11,23 +11,25 @@ import Access from "../../components/Access";
 import Account from "../../components/Account";
 import { useRouter } from "next/router";
 
-
 function Profile() {
   const [profileState, setProfileState] = useState("myproduct");
-  const {push} = useRouter();
+  const { push } = useRouter();
 
   return (
-    <div className="h-screen w-full flex">
+    <div className="h-screen w-full flex bg-slate-200" dir="rtl">
       {/* RIGHT */}
-      <div className="w-1/5 border-r-2 border-blue-700 pt-6 relative">
-        <div className="w-full flex max-h-28 items-center relative -top-3 cursor-pointer" onClick={()=> push('/')}>
-          <Image src={"/lg1.png"} width={130} height={50} />
-          <h2 className="-mt-6 border-r-2 border-black mr-2 pr-2 pl-2 text-blue-400 left-16 text-1xl font-extrabold absolute    tracking-wider">
+      <div className="w-1/5 border-l-2 border-blue-700 pt-6 relative">
+        <div
+          className="w-full flex max-h-28 items-center relative -top-3 cursor-pointer pr-3"
+          onClick={() => push("/")}
+        >
+          <Image src={"/samin.png"} width={130} height={50} />
+          {/* <h2 className="-mt-6 border-r-2 border-black mr-2 pr-2 pl-2 text-blue-400 left-16 text-1xl font-extrabold absolute    tracking-wider">
             SupplyIT
           </h2>
           <h2 className="-mt-6 font-extrabold absolute tracking-wider right-12 text-1xl">
             Pro
-          </h2>
+          </h2> */}
         </div>
 
         <div
@@ -36,8 +38,8 @@ function Profile() {
         >
           <BsBagCheck size={27} />
           <div className="flex justify-between w-full">
-            <p className="ml-4 hover:underline">My Products</p>
-            <IoIosArrowForward size={24} className="mt-1" />
+            <p className="ml-4 hover:underline pr-3 fonM">محصولات من</p>
+            <IoIosArrowBack size={24} className="mt-1" />
           </div>
         </div>
 
@@ -47,8 +49,8 @@ function Profile() {
         >
           <TbLayoutDashboard size={31} />
           <div className="flex justify-between w-full">
-            <p className="ml-4 hover:underline">Dashboard</p>
-            <IoIosArrowForward size={24} className="mt-1" />
+            <p className="ml-4 hover:underline pr-3 fonM">داشبورد</p>
+            <IoIosArrowBack size={24} className="mt-1" />
           </div>
         </div>
 
@@ -58,8 +60,8 @@ function Profile() {
         >
           <ImKey size={31} />
           <div className="flex justify-between w-full">
-            <p className="ml-4 hover:underline">Access</p>
-            <IoIosArrowForward size={24} className="mt-1" />
+            <p className="ml-4 hover:underline pr-3 fonM">دسترسی</p>
+            <IoIosArrowBack size={24} className="mt-1" />
           </div>
         </div>
 

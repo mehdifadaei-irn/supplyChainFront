@@ -1,3 +1,38 @@
+@import url("https://v1.fontapi.ir/css/Shabnam");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.opa {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.lef {
+  left: 20%;
+  top:10%;
+}
+.w40 {
+  width: 40%;
+}
+.fon {
+  font-family: Shabnam, sans-serif;
+  font-weight: 700;
+}
+.fonM {
+  font-family: Shabnam, sans-serif;
+  font-weight: 500;
+}
+.h{
+  height: 3rem;
+}
+.w-box{
+  width: 22%;
+}
+/* .hov:hover{
+  cursor: pointer;
+  transform: translate(0, -10px);
+  transition: all 0.2s linear;
+} */
+.w-200{
+  width: 208px;
+}
